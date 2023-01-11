@@ -8,3 +8,24 @@ body {
 #header-title {
     font-family: 'Pacifico', cursive;
 }
+
+/* .test {
+    background-image: url(/assets/HeartAnimationMin.png);
+}
+
+.heart {
+    background-image: url(/assets/HeartAnimationMin.png);
+}
+
+.testimonial {
+    background-image: url(/assets/HeartAnimationMin.png);
+    background-repeat: no-repeat;
+} */
+
+.heart-div {
+    margin-top: -50px;
+}
+
+.heart-div img {
+    width: 50px;
+}

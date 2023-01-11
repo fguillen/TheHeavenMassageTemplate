@@ -1,9 +1,7 @@
-const ANIMATION_TIME = 3000
-const ANIMATION_WAIT_MIN = 2000
-const ANIMATION_WAIT_MAX = 10000
+const HEARTS_ANIMATION_WAIT_TIME = 3000;
 
 function animationPlay(element) {
-    console.log("animationPlay");
+    console.log("animationPlay", element.getAttribute("src"));
     if (element.getAttribute("src") != element.getAttribute("data-animated-version")) {
         console.log("animationPlay Really: " + element.getAttribute("data-animated-version"));
         element.setAttribute("src", element.getAttribute("data-animated-version"));
@@ -17,18 +15,24 @@ function animationPause(element) {
     }
 }
 
-function animateForAWhile(element, time = ANIMATION_TIME) {
+function animateForAWhile(element) {
+    var animationTime = parseInt(element.getAttribute("data-animation-time"));
     if (element.getAttribute("src") != element.getAttribute("data-animated-version")) {
         animationPlay(element);
 
         setTimeout(() => {
             animationPause(element);
-        }, time);
+        }, animationTime);
     }
 }
 
 function animateRandomly(element) {
-    var waitTime = Math.random() * (ANIMATION_WAIT_MAX - ANIMATION_WAIT_MIN) + ANIMATION_WAIT_MIN;
+    var animationWait = parseInt(element.getAttribute("data-animation-wait"));
+    var animationWaitMax = animationWait + (animationWait / 2.0);
+    var animationWaitMin = animationWait - (animationWait / 2.0);
+
+    var waitTime = Math.random() * (animationWaitMax - animationWaitMin) + animationWaitMin;
+    console.log("Times: ", animationWaitMax, animationWaitMin, waitTime);
 
     setTimeout(() => {
         animateForAWhile(element);
@@ -48,7 +52,25 @@ function activateAnimations() {
     };
 }
 
+function activateHeartAnimations() {
+    var hearts = document.getElementsByClassName("animated-heart");
+
+    animateRandomHeart(hearts);
+}
+
+function animateRandomHeart(hearts) {
+    var heart = hearts[Math.floor(Math.random() * hearts.length)];
+    var waitingTime = (HEARTS_ANIMATION_WAIT_TIME / 2.0) + (Math.random() * HEARTS_ANIMATION_WAIT_TIME);
+
+    animateForAWhile(heart);
+
+    setTimeout(() => {
+        animateRandomHeart(hearts)
+    }, waitingTime);
+}
+
 
 document.addEventListener("DOMContentLoaded", function () {
     activateAnimations();
+    activateHeartAnimations();
 });
