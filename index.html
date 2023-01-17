@@ -101,8 +101,8 @@
             </div>
 
             <!-- Testimonials : INI -->
-            <div class="row" data-masonry='{"percentPosition": true }'>
-                <div class="col-sm-12 col-lg-4 mb-4">
+            <div class="row grid" id="masonry-grid">
+                <div class="col-sm-12 col-lg-4 mb-4 grid-item">
                     <div class="card p-3">
                         <figure class="p-3 mb-0">
                             <blockquote class="blockquote">
@@ -125,7 +125,7 @@
                         </div>
                     </div>
                 </div>
-                <div class="col-sm-12 col-lg-4 mb-4">
+                <div class="col-sm-12 col-lg-4 mb-4 grid-item">
                     <div class="card p-3">
                         <figure class="p-3 mb-0">
                             <blockquote class="blockquote">
@@ -150,7 +150,7 @@
                         </div>
                     </div>
                 </div>
-                <div class="col-sm-12 col-lg-4 mb-4">
+                <div class="col-sm-12 col-lg-4 mb-4 grid-item">
                     <div class="card p-3">
                         <figure class="p-3 mb-0">
                             <blockquote class="blockquote">
@@ -174,7 +174,7 @@
                         </div>
                     </div>
                 </div>
-                <div class="col-sm-12 col-lg-4 mb-4">
+                <div class="col-sm-12 col-lg-4 mb-4 grid-item">
                     <div class="card p-3">
                         <figure class="p-3 mb-0">
                             <blockquote class="blockquote">
@@ -200,7 +200,7 @@
                         </div>
                     </div>
                 </div>
-                <div class="col-sm-12 col-lg-4 mb-4">
+                <div class="col-sm-12 col-lg-4 mb-4 grid-item">
                     <div class="card p-3">
                         <figure class="p-3 mb-0">
                             <blockquote class="blockquote">
@@ -225,7 +225,7 @@
                     </div>
                 </div>
 
-                <div class="col-sm-12 col-lg-4 mb-4">
+                <div class="col-sm-12 col-lg-4 mb-4 grid-item">
                     <div class="card p-3">
                         <figure class="p-3 mb-0">
                             <blockquote class="blockquote">
@@ -250,7 +250,7 @@
                     </div>
                 </div>
 
-                <div class="col-sm-12 col-lg-4 mb-4">
+                <div class="col-sm-12 col-lg-4 mb-4 grid-item">
                     <div class="card p-3">
                         <figure class="p-3 mb-0">
                             <blockquote class="blockquote">
@@ -279,7 +279,7 @@
                 </div>
 
 
-                <div class="col-sm-12 col-lg-4 mb-4">
+                <div class="col-sm-12 col-lg-4 mb-4 grid-item">
                     <div class="card p-3">
                         <figure class="p-3 mb-0">
                             <blockquote class="blockquote">
@@ -307,7 +307,7 @@
                     </div>
                 </div>
 
-                <div class="col-sm-12 col-lg-4 mb-4">
+                <div class="col-sm-12 col-lg-4 mb-4 grid-item">
                     <div class="card p-3">
                         <figure class="p-3 mb-0">
                             <blockquote class="blockquote">
@@ -331,7 +331,7 @@
                     </div>
                 </div>
 
-                <div class="col-sm-12 col-lg-4 mb-4">
+                <div class="col-sm-12 col-lg-4 mb-4 grid-item">
                     <div class="card p-3">
                         <figure class="p-3 mb-0">
                             <blockquote class="blockquote">
@@ -378,6 +378,15 @@
 
 
     <script src="/assets/script.js"></script>
+
+<script>
+    document.fonts.ready.then(function () {
+        console.log("Fonts ready");
+        var masonryGrid = new Masonry('#masonry-grid', {
+            itemSelector: '.grid-item'
+        });
+    });
+</script>
 </body>
 
 </html>
